@@ -1,0 +1,47 @@
+sql--> create table sowreg(userid varchar2(20) not null unique,
+                           name varchar2(30) not null, 
+			   username varchar2(20) not null,
+			   password varchar2(20) not null, 
+			   mobile number(10,0) not null unique,
+			   city varchar2(20) not null, primary key(userid,username));
+
+Table created.
+
+sql--> CREATE SEQUENCE seq_userid
+MINVALUE 5067000
+START WITH 5067001
+INCREMENT BY 1
+CACHE 10; 
+
+
+SQL> insert into sowreg(userid,name,username,password,mobile,city) values (seq_userid.nextval,'vishnuteja','vishnu05','vishnu@05',8179640330,'chennai');
+
+1 row created.
+
+SQL> insert into sowreg(userid,name,username,password,mobile,city) values (seq_userid.nextval,'adityakrishna','aditya25','aditya@25',9581301528,'ooty');
+
+1 row created.
+
+
+SQL> select * from sowreg;
+
+USERID               NAME                           USERNAME             PASSWORD		MOBILE          CITY
+-------------------- ------------------------------ -------------------- --------------------   ------------    ---------
+5067001              vishnuteja                     vishnu05             vishnu@05		8179640330	chennai
+ 
+
+5067002              adityakrishna                  aditya25             aditya@25		9581301528	ooty
+ 
+
+
+sql--> desc sowreg;
+ Name                                                  Null?    Type
+ ----------------------------------------------------- -------- ------------------------------------
+ USERID                                                NOT NULL VARCHAR2(20)
+ NAME                                                  NOT NULL VARCHAR2(30)
+ USERNAME                                              NOT NULL VARCHAR2(20)
+ PASSWORD                                              NOT NULL VARCHAR2(20)
+ MOBILE                                                NOT NULL NUMBER(10)
+ CITY                                                  NOT NULL VARCHAR2(20)
+
+
